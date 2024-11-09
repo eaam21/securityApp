@@ -21,7 +21,6 @@ public class UsuarioDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = usuarioRepository.findByUsuario(username);
-		
         Set<GrantedAuthority> authorities = usuario.getRoles().stream()
                 .map((roles) -> new SimpleGrantedAuthority(roles.getRol()))
                 .collect(Collectors.toSet());
