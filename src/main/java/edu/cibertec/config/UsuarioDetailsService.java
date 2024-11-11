@@ -8,12 +8,16 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import edu.cibertec.model.entity.Usuario;
 import edu.cibertec.model.repository.IUsuarioRepository;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @AllArgsConstructor
+@Service
+@Data
 public class UsuarioDetailsService implements UserDetailsService {
 
 	private IUsuarioRepository usuarioRepository;
@@ -31,5 +35,4 @@ public class UsuarioDetailsService implements UserDetailsService {
                 authorities
         );
 	}
-
 }
